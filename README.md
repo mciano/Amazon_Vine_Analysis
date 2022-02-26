@@ -1,13 +1,38 @@
 # Amazon_Vine_Analysis
-Complete an analysis of an Amazon customer review. Define big data and describe the challenges associated with it. Define Hadoop and name the main elements of its ecosystem. Explain how MapReduce processes data. Define Spark and explain how it processes data. Describe how NLP collects and analyzes text data. Explain how to use AWS Simple Storage Service (S3) and relational databases for basic cloud storage. 
 
+## Overview of the analysis
 
-* Deliverable 1: Perform ETL on Amazon Product
+This project has the purpose to analyse the Musical Instruments Reviews, working on [Amazon Review Datasets](https://s3.amazonaws.com/amazon-reviews-pds/tsv/index.txt) more especificaly [Musical Instruments](https://s3.amazonaws.com/amazon-reviews-pds/tsv/amazon_reviews_us_Musical_Instruments_v1_00.tsv.gz).
+In order to have this analysis, a powerful was necessary to process the Big Data. Google Collab to process using PySpark and reading the data, storaging and feeding SQL Postgresql. 
+The focus of this analyis has the objective to show the interest party to understand the behavior of Amazon Vine Members. 
 
-Using your knowledge of the cloud ETL process, you’ll create an AWS RDS database with tables in pgAdmin, 
-pick a dataset from the Amazon Review datasets (Links to an external site.), and extract the dataset into a DataFrame.
-You'll transform the DataFrame into four separate DataFrames that match the table schema in pgAdmin. 
-Then, you'll upload the transformed data into the appropriate tables and run queries in pgAdmin to confirm that the data has been uploaded.
+## Results
 
+* *Create DataFrame for Voting_Percentage , where Count is greater or igual 50* 
 
-https://s3.amazonaws.com/amazon-reviews-pds/tsv/amazon_reviews_us_Musical_Instruments_v1_00.tsv.gz
+Firstly was necessary to filter and create a dataframe with reviews grater than 20 votes. Then below image shows the helpful rating greater or equal to 50%
+
+![](resources/greater_than_50.png)
+
+* *Create Vine Program DataFrame for reviews*
+
+Helpful reviews filter by Vine members, where 'Y' means paid .  
+![](resources/vine_table.png)
+
+* *Create Vine Program DataFrame for reviews that are NOT part of the program*
+
+Helpful reviews filter by Vine members, where 'N' means unpaid .  
+![](resources/unpaid_reviews.png)
+
+* *5_Star Reviews*
+
+A total of 8,246 5_Star reviews , 214 Paid Vine Member adn 70,303 non Member. 
+
+![](resources/5_Star_reviews.png)
+
+* *5_Star Percentage*
+
+Vine reviews was reponsable for 56.67% , while non-Vine 56.72%
+
+![](resources/percentage_review.png)
+
